@@ -12,15 +12,13 @@ class Board {
     int size; 
     vector <vector <BoardMem> > board;
     Board(int x) ;
-
     friend ostream& operator << ( ostream& op, const Board& bo);
-
     BoardMem& operator [] (list <int> lis);
-
     Board& operator = (char c);
-
     Board& operator = (Board b);
+    Board(const Board &b2);
 
 
 };
+
 
