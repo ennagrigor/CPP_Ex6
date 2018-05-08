@@ -56,15 +56,32 @@ using namespace std;
             return (*this);
         }
 
-    Board& Board::operator = (Board b){
+   Board& Board::operator= (Board b2){
+			this->size = b2.size;
+			vector<vector<BoardMem> > newBoard;
+			for (int i = 0; i < size; ++i) {
+				vector<BoardMem> tmp;
+				for (int j = 0; j < size; ++j) {
+					BoardMem c(i, j, b2.board[i][j].c);
+					tmp.push_back(c);
+				}
+				newBoard.push_back(tmp);
+			}
+			
+			board = newBoard;
+			return *this;
+		}
 
-
-        for (int i = 0; i < size; i++){
-            for(int j = 0 ; j < size; j++){
-                board[i][j] = b.board[i][j];
-            }
-        }
-       
-       return (*this);
-    }
+        Board::Board(const Board &b2) {
+			this->size = b2.size;
+			
+			for (int i = 0; i < size; ++i) {
+				vector<BoardMem> tmp;
+				for (int j = 0; j < size; ++j) {
+					BoardMem c(i, j, b2.board[i][j].c);
+					tmp.push_back(c);
+				}
+				board.push_back(tmp);
+			}
+		}
 
