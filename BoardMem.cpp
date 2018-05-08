@@ -37,6 +37,9 @@ class BoardMem {
            return val;
         }
 
+        const bool operator == (const char c)const{
+            return val == c;
+        }
 
 };
 
